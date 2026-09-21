@@ -6,73 +6,44 @@ MerhabaMap is a bilingual German–Turkish community platform for discovering pl
 
 The project addresses a gap in mainstream local-discovery products: culturally relevant, bilingual and privacy-conscious discovery for the Turkish diaspora. MerhabaMap launched in June 2026, reached approximately 700 registered users during its first month and covers more than 100 German cities.
 
-## What MerhabaMap provides
+## What is open here
 
-- place and local-business discovery
-- event discovery
-- German and Turkish user experiences
-- profiles, saved content and community interactions
-- community submissions and moderation workflows
-- privacy-aware location handling at city level
+This repository is a clean, contributor-facing open-source snapshot. It intentionally starts with fresh Git history and currently contains reusable, production-derived building blocks:
 
-## Technology
+- platform-neutral map marker and clustering logic
+- privacy-preserving consent parsing
+- deterministic pre-moderation and safe URL tokenization
+- automated tests and continuous integration
+- public architecture, security and contribution documentation
 
-- TypeScript
-- Next.js and React
-- PostgreSQL and Prisma
-- Supabase Auth and Row Level Security
-- Capacitor for iOS and Android
-- npm workspaces
-
-## Open-source scope
-
-This repository is a clean, contributor-facing snapshot of MerhabaMap. It intentionally starts with a fresh Git history.
-
-The public repository does **not** contain production data, credentials, private ingestion systems, internal incident records or sensitive operational runbooks. Example configuration uses placeholders only.
+The production application, production data, private ingestion systems, deployment credentials, incident records and sensitive operational runbooks are not included.
 
 ## Repository layout
 
 ```text
-apps/
-  web/               Next.js application
 packages/
-  shared/            Platform-neutral types and pure logic
-  api-client/        Typed client for app-facing APIs
-docs/
-  public/             Contributor-facing architecture and project documentation
+  shared/            Platform-neutral map types and clustering
+  community-core/    Consent and pre-moderation primitives
+tests/                Public package tests
+docs/                 Public project and architecture documentation
 ```
 
 ## Local development
 
-### Prerequisites
+Requirements:
 
 - Node.js 20 or a current LTS release
 - npm
-- PostgreSQL
-
-### Setup
 
 ```bash
 git clone https://github.com/rdmfl03/merhabamap-open-source.git
 cd merhabamap-open-source
 npm install
-cp .env.example .env.local
-npm run db:setup
-npm run dev
-```
-
-Only use local or disposable development services. Never connect an unreviewed checkout to production infrastructure.
-
-## Quality
-
-Typical checks are:
-
-```bash
-npm run lint
 npm run typecheck
-npm run test
-npm run build
+npm test
 ```
+
+No production credentials or services are required.
 
 ## Security and privacy
 
@@ -82,7 +53,11 @@ Do not publish secrets, real user data or private infrastructure details. Report
 
 ## Contributing
 
-Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md) before opening a pull request.
+
+## Public snapshot policy
+
+Every import from the private production repository must pass a public-readiness review. See [docs/PUBLIC_SNAPSHOT.md](docs/PUBLIC_SNAPSHOT.md).
 
 ## License
 

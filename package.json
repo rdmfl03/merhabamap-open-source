@@ -1,0 +1,22 @@
+{
+  "name": "merhabamap-open-source",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Open-source building blocks from the bilingual MerhabaMap community platform.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vitest": "^3.2.4"
+  }
+}
